@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>クロスドメイン突破してみるん</title>
+    <!--  jQuery 読み込む -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- jquery.xdomainajax.js を読み込む  -->
+    <script src="jquery.xdomainajax.js"> </script>
+    <script>
+
+        ////Javascript変数定義  
+        //var content = "";
+        //$(document).ready(function () {
+        //    $.ajax({
+        //        //url: 'https://httpbin.org/',//　http://から始まるURLを指定  
+        //        //url: 'http://ec2-35-163-153-242.us-west-2.compute.amazonaws.com:3000/',
+        //        //url: 'http://ec2-35-163-153-242.us-west-2.compute.amazonaws.com/webgl/PostWebGL/',
+        //        //url: 'http://sandbox.9dw.jp/webgl/PostWebGL/',
+        //        type: 'GET',
+        //        success: function (res) {
+
+        //            content = $(res.responseText);//○○.responseTextで取得  
+
+        //            console.log(content);
+        //            $("#text").text(content);
+        //        }
+
+        //    });
+
+        //});
+
+        //url = 'http://ec2-35-163-153-242.us-west-2.compute.amazonaws.com:3000/api/start_conversation';
+        url = 'http://sandbox.9dw.jp:3000/api/start_conversation';
+        //url: 'http://sandbox.9dw.jp/webgl/PostTest/',
+       
+        $.get(url, function (data) {
+            var content = $(data.responseText);//.find('.title').text();
+            $("#text").text(content);
+
+            console.log(content);
+        });
+    </script>
+</head>
+<body>
+    <div id="text"></div>
+</body>
+</html>
